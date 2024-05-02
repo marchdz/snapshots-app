@@ -4,6 +4,9 @@ plugins {
 
     // Kapt
     alias(libs.plugins.jetbrainsKotlinKapt)
+
+    // Firebase
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -53,6 +56,20 @@ dependencies {
     // Glide
     implementation(libs.glide)
     kapt(libs.compiler)
+
+    // FirebaseUI for Firebase Realtime Database
+    implementation(libs.firebase.ui.database)
+
+    // FirebaseUI for Firebase Auth
+    implementation(libs.firebase.ui.auth)
+
+    // Import the BoM for the Firebase platform
+    implementation(platform(libs.firebase.bom))
+
+    // Add the dependency for the Cloud Storage library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-storage")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
